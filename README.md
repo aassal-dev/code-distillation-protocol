@@ -4,6 +4,13 @@ Distill engineering wisdom from a codebase into a **Global Library** of atomic p
 
 ---
 
+## Repository workflow
+
+- **No pull requests.** Work is done on version branches (e.g. `v0.2.04`, `v0.2.05`).
+- **Merges only after confirmation.** Do not merge any branch into `main` until the maintainer has confirmed.
+
+---
+
 ## How to Use and Invoke v0.2.05 (Step by Step)
 
 ### Prerequisites
