@@ -1,4 +1,4 @@
-# Knowledge Extraction — Validation Checklist (v0.2.04)
+# Knowledge Extraction — Validation Checklist (v0.2.05)
 
 Run this checklist after Phase 3 (Librarian). Path: referenced from workflow.yaml key `validation`. Use it to verify the extraction run is complete and consistent.
 
@@ -36,6 +36,7 @@ Run this checklist after Phase 3 (Librarian). Path: referenced from workflow.yam
 ## 5. State (optional)
 
 - [ ] **State file:** If using resume, extraction-state.json is updated (current_phase, last_updated; when use_director: director_done; and optionally targets_done, findings_count, discarded_common_knowledge_count).
+- [ ] **Orchestrator and workflow (v0.2.05):** Orchestrator includes mandate block and write-as-you-go mandate; workflow map (or section) present in workflow.md.
 
 ---
 

@@ -1,4 +1,4 @@
-# Knowledge Extraction Workflow (v0.2.04)
+# Knowledge Extraction Workflow (v0.2.05)
 
 **Goal:** Distill engineering wisdom from a codebase into a **Global Library** of atomic patterns and tricks (cunning, novel, masterful). Output: optional learning*objectives.md → extraction_plan → findings → library/pattern*\*.md + library/README.md.
 
@@ -31,7 +31,25 @@ Config and paths are **config-driven** via `workflow.yaml`. State is tracked in 
 2. **Resolve paths** — Replace placeholders `{project-root}`, `{extraction_root}`, `{installed_path}` from config. Ensure output dirs exist (findings, library; \_distillation for plan and objectives).
 3. **Discover state** — If resuming: read `extraction-state.json` (same base as output_plan or configurable). Use `current_phase`, `director_done`, `targets_done`, `findings_count` to skip completed work.
 
+**Load strategy:**
+
+- **Load at init:** workflow.md, workflow.yaml, step files (step-00 through step-03), extraction-state.json if present.
+- **Store path only; load when needed:** `validation` (checklist) — load only when running the Phase 3 (Librarian) validation step; optional `blueprint_file` / `theory_context_path` — load only in Phase 0 when use_director is true.
+
 Do not assume paths are hardcoded; resolve from config.
+
+---
+
+## WORKFLOW MAP
+
+| Phase | Step      | Produces                                                 | Consumed by          |
+| ----- | --------- | -------------------------------------------------------- | -------------------- |
+| 0     | Director  | learning_objectives.md, optional implementation_map.json | Phase 1 (plan focus) |
+| 1     | Surveyor  | extraction_plan.json                                     | Phase 2 (targets)    |
+| 2     | Atomizer  | finding\_\*.md per target                                | Phase 3 (inputs)     |
+| 3     | Librarian | pattern\_\*.md, library/README.md; runs checklist        | —                    |
+
+Each phase’s output is context for the next: objectives → plan focus; plan → findings; findings → library.
 
 ---
 
@@ -40,7 +58,7 @@ Do not assume paths are hardcoded; resolve from config.
 1. If **use_director** is true: Load and execute **steps/step-00-director.md**. Output: learning_objectives.md at output_objectives; optionally implementation_map.json when Blueprint provided. Update state: director_done = true.
 2. Load and execute **steps/step-01-survey.md** (Surveyor). When learning_objectives.md exists, tie extraction_plan focus to Learning Targets; otherwise current behaviour (nerve centers by complexity). Output: extraction_plan.json; optionally update extraction-state.json.
 3. Load and execute **steps/step-02-atomize.md** (Atomizer). Input: extraction_plan.json; optional implementation_map.json when Blueprint run. Output: findings/\*.md per target; optional "Theory vs. Practice" in findings when Blueprint used. Update state after each target or batch.
-4. Load and execute **steps/step-03-librarian.md** (Librarian). Input: findings/_.md; output: library/pattern\__.md, library/README.md; run checklist; optionally archive or clear findings. Preserve "Theory vs. Practice" in pattern artifacts when present.
+4. Load and execute **steps/step-03-librarian.md** (Librarian). Input: findings/\_.md; output: library/pattern\_\_.md, library/README.md; run checklist; optionally archive or clear findings. Preserve "Theory vs. Practice" in pattern artifacts when present.
 
 After Phase 3 (Librarian), validation checklist (checklist.md) is run; do not delete findings until Librarian has written and validated library artifacts.
 
@@ -52,3 +70,4 @@ After Phase 3 (Librarian), validation checklist (checklist.md) is run; do not de
 - **Prompts:** v0.2.04 The Codebase Distillation Prompts.md (Director, Surveyor conditional, Atomizer, Librarian; Blueprint/Theory vs. Practice).
 - **State schema:** extraction-state.schema.md.
 - **Blueprint add-on:** Blueprint Extraction Protocol (add-on).md.
+- **Patterns (v0.2.05):** Load strategy and workflow map informed by BMAD-METHOD distillation/library (validation-path-on-demand, data-files-store-paths-load-on-demand, phase-based-workflow-map-context-continuity).

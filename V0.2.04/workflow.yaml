@@ -1,6 +1,6 @@
-# Knowledge Extraction Workflow Configuration (v0.2.04)
+# Knowledge Extraction Workflow Configuration (v0.2.05)
 name: "knowledge-extraction"
-version: "0.2.04"
+version: "0.2.05"
 description: "Distills codebase patterns and tricks into a structured library. Optional Director (Phase 0) for intent; Survey → Atomize → Librarian."
 author: "Knowledge Extraction System"
 
@@ -12,7 +12,7 @@ use_director: true
 # theory_context_path: ""
 
 # Paths (resolve from extraction root; placeholders: {extraction_root}, {project-root})
-extraction_root: "{project-root}"
+extraction_root:  "E:\workspaces\_distillations\BMAD-METHOD" #"{project-root}"
 output_plan: "{extraction_root}/_distillation/extraction_plan.json"
 output_objectives: "{extraction_root}/_distillation/learning_objectives.md"
 output_findings: "{extraction_root}/_distillation/findings"
