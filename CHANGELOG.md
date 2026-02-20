@@ -1,6 +1,19 @@
 # Version history — Knowledge Extraction System
 
-## v0.2.04 (current)
+## v0.2.05 (current)
+
+**Theme:** BMAD library learnings — mandate block, validation on-demand, init/load strategy, post–Phase 1 ask (Continue / Pause / YOLO), workflow map, write-as-you-go.
+
+- **MANDATE block (orchestrator):** Non-skippable rules: execute phases in order; write each finding to disk and update extraction-state.json after every Atomizer target; never skip a step; resume only by state-driven skip of completed work.
+- **Load strategy (workflow.md):** Explicit "load at init" (workflow, config, step files, state) vs "store path, load when needed" (validation checklist at Phase 3; optional blueprint/theory only in Phase 0). Aligns with validation-path-on-demand and data-files-store-paths-load-on-demand patterns.
+- **Post–Phase 1 ask:** After Survey, explicit prompt: [c] Continue to Atomize, [p] Pause (review plan), [y] YOLO (no further confirmations this run). WAIT for response; [y] sets YOLO for the run.
+- **Workflow map:** Phase table (Phase | Step | Produces | Consumed by) and "each phase's output is context for the next" in workflow.md for phase-based context continuity.
+- **Write-as-you-go mandate:** Orchestrator and Atomizer mandate: write each finding immediately; update state after each target or batch; do not accumulate findings in context.
+- **v0.2.05 artifacts:** workflow.md, workflow.yaml, steps/ (00–03), checklist, extraction-state.schema, Standardized Output Templates, Prompts, Orchestrator, Strategy Evaluation, Blueprint add-on. All v0.2.04 behaviour preserved; new run default is V0.2.05.
+
+---
+
+## v0.2.04
 
 **Theme:** Consolidation of v0.2.0 + v0.2.03. Optional Director (Phase 0), learning_objectives.md, use_director flag, optional Blueprint extension, Theory vs. Practice in artifacts.
 
