@@ -1,0 +1,40 @@
+# Knowledge Extraction Workflow Configuration (v0.2.06)
+name: "knowledge-extraction"
+version: "0.2.06"
+description: "Distills codebase patterns and tricks into a structured library. Optional Director (Phase 0) for intent; Survey → Atomize → Librarian. v0.2.06: Code completeness, merge-map, concept_id, proportional LTs."
+author: "Knowledge Extraction System"
+
+# Director (optional Phase 0): when true, run step-00 then 01→02→03; when false, run 01→02→03 only.
+use_director: true
+
+# Optional: path to a theory/Blueprint file (Markdown). When set, Director can derive learning_objectives from it and optionally output implementation_map.json; Atomizer can add "Theory vs. Practice" to artifacts.
+# blueprint_file: ""
+# theory_context_path: ""
+
+# Paths (resolve from extraction root; placeholders: {extraction_root}, {project-root})
+extraction_root:  "E:\workspaces\_distillations\auto-assistant-ai\openclaw" #"{project-root}"
+output_plan: "{extraction_root}/_distillation/extraction_plan.json"
+output_objectives: "{extraction_root}/_distillation/learning_objectives.md"
+output_findings: "{extraction_root}/_distillation/findings"
+output_library: "{extraction_root}/_distillation/library"
+
+# Validation (when using this version, point to this folder's checklist)
+validation: "{installed_path}/checklist.md"
+
+# Optional: batch size for Phase 2 when plan has many targets (e.g. >15)
+batch_size: 15
+
+# Exclude paths for Surveyor scan (prefix match; recursive scan skips these)
+exclude_paths:
+  - "node_modules"
+  - ".git"
+  - "dist"
+  - "build"
+  - ".next"
+  - "__pycache__"
+  - ".venv"
+  - "vendor"
+
+# Module path: directory containing this workflow (for validation path resolution). Set to this V0.2.06 folder when running v0.2.06.
+installed_path: "."
+instructions: "" # Optional: path to instructions.md for structured step parsing
