@@ -4,7 +4,7 @@ Run this checklist after Phase 3 (Librarian). Path: referenced from workflow.yam
 
 ## 0. Director (when use_director is true)
 
-- [ ] **Learning objectives present:** learning_objectives.md is present at output_objectives path before Surveyor (step-01) was run. Contains 3–7 Learning Targets.
+- [ ] **Learning objectives present:** learning_objectives.md is present at output_objectives path before Surveyor (step-01) was run. Number of Learning Targets is proportional to the size of the code.
 
 ## 1. Extraction plan
 

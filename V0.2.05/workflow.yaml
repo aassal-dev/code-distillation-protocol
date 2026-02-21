@@ -12,7 +12,7 @@ use_director: true
 # theory_context_path: ""
 
 # Paths (resolve from extraction root; placeholders: {extraction_root}, {project-root})
-extraction_root:  "E:\workspaces\_distillations\BMAD-METHOD" #"{project-root}"
+extraction_root:  "E:\workspaces\_distillations\auto-assistant-ai\openclaw" #"{project-root}"
 output_plan: "{extraction_root}/_distillation/extraction_plan.json"
 output_objectives: "{extraction_root}/_distillation/learning_objectives.md"
 output_findings: "{extraction_root}/_distillation/findings"

@@ -58,7 +58,7 @@ Each phase's output is context for the next: objectives → plan focus; plan →
 1. If **use_director** is true: Load and execute **steps/step-00-director.md**. Output: learning_objectives.md at output_objectives; optionally implementation_map.json when Blueprint provided. Update state: director_done = true.
 2. Load and execute **steps/step-01-survey.md** (Surveyor). When learning_objectives.md exists, tie extraction_plan focus to Learning Targets; otherwise current behaviour (nerve centers by complexity). Output: extraction_plan.json; optionally update extraction-state.json.
 3. Load and execute **steps/step-02-atomize.md** (Atomizer). Input: extraction_plan.json; optional implementation_map.json when Blueprint run. Output: findings/\*.md per target; optional "Theory vs. Practice" in findings when Blueprint used. Update state after each target or batch.
-4. Load and execute **steps/step-03-librarian.md** (Librarian). Input: findings/_.md; output: library/pattern\__.md, library/README.md; run checklist; optionally archive or clear findings. Preserve "Theory vs. Practice" in pattern artifacts when present.
+4. Load and execute **steps/step-03-librarian.md** (Librarian). Input: findings/\_.md; output: library/pattern\_\_.md, library/README.md; run checklist; optionally archive or clear findings. Preserve "Theory vs. Practice" in pattern artifacts when present.
 
 After Phase 3 (Librarian), validation checklist (checklist.md) is run; do not delete findings until Librarian has written and validated library artifacts.
 
